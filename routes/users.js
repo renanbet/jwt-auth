@@ -25,7 +25,7 @@ router.post('/signin', (req, res) => {
       }
       var userModel = new User()
       userModel.username = req.body.username
-      userModel.password = Auth.passwordHash(req.body.password)
+      userModel.password = Auth.createPasswordHash(req.body.password)
 
       userModel.save()
         .then(user => {
