@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./modules/authentication/routes/users');
 
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGO_URL);
