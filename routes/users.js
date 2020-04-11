@@ -9,7 +9,7 @@ router.post('/signin', (req, res) => {
 
   if (!username || !password) {
     res.status(400)
-    res.json({
+    .json({
       data: "Invalid username or password!"
     });
     return
@@ -18,7 +18,7 @@ router.post('/signin', (req, res) => {
     .then(user => {
       if (user) {
         res.status(400)
-        res.json({
+        .json({
           data: "User already exists!"
         });
         return
@@ -35,14 +35,14 @@ router.post('/signin', (req, res) => {
         })
         .catch(err => {
           res.status(400)
-          res.json({
+          .json({
             data: "error"
           });
         })
     })
     .catch(err => {
       res.status(400)
-      res.json({
+      .json({
         data: "error"
       });
     })
@@ -54,7 +54,7 @@ router.post('/login', (req, res, next) => {
 
     if (!username || !password) {
       res.status(400)
-      res.json({
+      .json({
         data: "Invalid username or password!"
       });
       return
@@ -62,13 +62,13 @@ router.post('/login', (req, res, next) => {
     User.findOne({ username }, (err, user) => {
       if (err) {
         res.status(400)
-        res.json({
+        .json({
           data: "error"
         });
       } else {
         if (!user || !Auth.passwordCompare(password, user.password)) {
           res.status(400)
-          res.json({
+          .json({
             data: "Invalid username or password!"
           });
           return
@@ -82,11 +82,11 @@ router.post('/login', (req, res, next) => {
   });
 
 router.get('/me', Auth.ensureAuthorized, (req, res, next) => {
-    let authUser = req.auth.user
+    let authUser = req.authUser
     User.findOne({ username: authUser.username }, function (err, user) {
       if (err) {
         res.status(400)
-        res.json({
+        .json({
           data: "error"
         });
       } else {
