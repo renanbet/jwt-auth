@@ -5,7 +5,7 @@ function AuthRoutes () {
 	this.routes = [
     {
       path: '/users/',
-      roles: [Roles.admin]
+      roles: [Roles.admin, Roles.user]
     }
   ]
 }
