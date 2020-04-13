@@ -1,10 +1,19 @@
 # jwt-auth
 
 
-Set params in .env
+generate token and refresh token to access api
 
 
-npm i
+Set eviroment params in .env
 
 
-npm start
+npm install
+
+
+npm start 
+
+
+routes: signin, login, getuser and getall
+
+
+set authenticated routes in lib auth routes
