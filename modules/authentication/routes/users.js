@@ -3,7 +3,7 @@ var router = express.Router();
 const userController = require('../controllers/user.controller')
 const Auth = require('./../lib/auth')
 
-router.post('/signin', async (req, res) => {
+router.post('/signup', async (req, res) => {
   let username = req.body.username
   let password = req.body.password
 
