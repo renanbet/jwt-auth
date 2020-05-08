@@ -13,7 +13,7 @@ Auth.prototype.ensureAuthorized = (req, res, next) => {
   if (token) {
     jwt.verify(token, SECRET, (err, decoded) => {
       if (err) {
-        res.sendStatus(403)
+        res.sendStatus(401)
       } else {
         const user = decoded.user
         const path = `${req.baseUrl}${req.path}`
@@ -22,7 +22,7 @@ Auth.prototype.ensureAuthorized = (req, res, next) => {
           return item.path === path
         })
         if (route && route.roles.length && !route.roles.includes(user.role)) {
-          res.sendStatus(403)
+          res.sendStatus(401)
           return
         }
 
@@ -41,7 +41,7 @@ Auth.prototype.ensureAuthorized = (req, res, next) => {
       }
     })
   } else {
-    res.sendStatus(403);
+    res.sendStatus(401);
   }
 }
 
