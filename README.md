@@ -1,19 +1,9 @@
 # jwt-auth
 
+Api to generate access authorization token
 
-generate token and refresh token to access api
-
-
-Set eviroment params in .env
-
-
-npm install
-
-
-npm start 
-
-
-routes: signin, login, getuser and getall
-
-
-set authenticated routes in lib auth routes
+- Set eviroments on .env
+- npm install
+- npm start 
+- routes: signin, login, getuser and getall
+- set authenticated routes at lib auth routes
